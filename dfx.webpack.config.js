@@ -24,7 +24,7 @@ function initCanisterIds() {
 
   canisters = network === "local" ? localCanisters : prodCanisters
 
-  process.local = {
+  const envList = {
     DFX_NETWORK: "local"
   }
 
@@ -32,15 +32,17 @@ function initCanisterIds() {
     const name = canister.toUpperCase()
     const address = canisters[canister][network]
 
-    process.local[`${name}_CANISTER_ID`] = address
+    envList[`${name}_CANISTER_ID`] = address
   }
 
   writeFileSync(
     path.resolve(".env.local"),
-    Object.entries(process.local)
+    Object.entries(envList)
       .map(([key, value]) => `${key}=${value}`)
       .join("\n")
   )
+
+  return envList
 }
 
 module.exports = {

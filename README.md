@@ -10,13 +10,11 @@ This project provides a simple starter template for Dfinity Internet Computer us
 
 **Backend**
 
-- A simple greeting hello world canister written in Motoko
-- ImageBucket canister written in Motoko with create image, delete image and getImageById
+- A simple greeting hello world canister written in Rust
 
 **Frontend**
 
 - A simple React HTML form with name input, sending it to greet canister and showing the returned result
-- An Image Upload HTML form with Pick an Image button, upload the image to image canister, loading the image back from the canister and display it using useImageObject React Hook
 
 ## Live Demo in IC Mainnet 🥳
 
@@ -30,8 +28,6 @@ Install:
 
 - NodeJS 18.\* or higher https://nodejs.org/en/download/
 - Internet Computer dfx CLI https://internetcomputer.org/docs/current/developer-docs/setup/install/
-- Visual Studio Code (Recommended Code Editor) https://code.visualstudio.com/Download
-- VSCode extension - Motoko (Recommended) https://marketplace.visualstudio.com/items?itemName=dfinity-foundation.vscode-motoko
 
 ```bash
 sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
@@ -58,6 +54,7 @@ Enter the commands to install dependencies, deploy canister and run Next.js dev 
 ```bash
 npm install
 dfx deploy
+dfx generate
 npm run dev
 ```
 
@@ -74,20 +71,15 @@ dfx stop
 Internet Computer has the concept of [Canister](https://smartcontracts.org/docs/current/concepts/canisters-code/) which is a computation unit. This project has 3 canisters:
 
 - hello (backend)
-- image (backend)
 - hello_assets (frontend)
 
 Canister configurations are stored in dfx.json.
 
 ### Backend
 
-Backend code is inside /backend/ written in [Motoko language](https://internetcomputer.org/docs/current/motoko/main/motoko-introduction). Motoko is a type-safe language with modern language features like async/await and actor build-in. It also has [Orthogonal persistence](https://internetcomputer.org/docs/current/motoko/main/motoko/#orthogonal-persistence) which I find very interesting.
-
-Image canister is introduced from release v0.2.0. It makes use of orthogonal persistence through stable variables and provides functions for create, delete and get image. See /backend/service/Image.mo.
+Backend code is inside /backend/ written in [Rust language](https://internetcomputer.org/docs/current/developer-docs/backend/rust/). Rust is a type-safe language with modern language features like async/await and actor build-in. It also has [Orthogonal persistence](https://internetcomputer.org/docs/current/Rust/main/Rust/#orthogonal-persistence) which I find very interesting.
 
 ### Frontend
-
-Frontend code follows Next.js folder convention with /pages storing page React code, /public storing static files including images. This project uses CSS modules for styling which is stored in /ui/styles. React Components are stored in /ui/components
 
 Entry page code is inside /pages/index.js where the magic starts. With the DFX UI declarations generated code, frontend can use RPC style call to server side actor and its functions without worrying about HTTP request and response parsing.
 
@@ -96,52 +88,6 @@ To generate UI declarations:
 ```
 dfx generate
 ```
-
-It will generate files in src/declarations for each canister. In our case, it is image, hello and hello_assets but we only need the backend canister image and hello UI declarations here.
-
-The next step is to adapt it to work with Next.js.
-The final adapted code is in ui/declaration/hello/index.js.
-You can also follow the steps below to update it.
-
-Basically, copy image.did.js and index.js from src/declarations/image/
-
-```
-cp src/declarations/image/image.did.js ui/declarations/image/image.did.js
-cp src/declarations/image/index.js ui/declarations/image/index.js
-```
-
-Repeat the same for hello.
-
-```
-cp src/declarations/hello/hello.did.js ui/declarations/hello/hello.did.js
-cp src/declarations/hello/index.js ui/declarations/hello/index.js
-```
-
-The next step is to update the canister ID env variable in each canister index.js to use NEXT_PUBLIC prefix so that NextJS can recognize when compiling it.
-
-Open ui/declarations/hello/index.js and look for the line:
-
-```
-export const canisterId = process.env.HELLO_CANISTER_ID;
-```
-
-Update HELLO_CANISTER_ID to NEXT_PUBLIC_HELLO_CANISTER_ID:
-
-```
-export const canisterId = process.env.NEXT_PUBLIC_HELLO_CANISTER_ID
-```
-
-Also delete the export line at the bottom so that it won't create actor during NextJS server side compilation when you run in next dev mode.
-
-```
-export const hello = createActor(canisterId);
-```
-
-Repeat the same for ui/declarations/image/index.js.
-
-To see the final code, check the original ui/declarations in the Git repo.
-
-The generate UI declarations also support TypeScript if you prefer TypeScript.
 
 We use a service locator pattern through actor-locator.js that will handle the dfx agent host using env var NEXT_PUBLIC_IC_HOST.
 
@@ -158,16 +104,8 @@ Calling hello actor:
 const greeting = await hello.greet(name)
 ```
 
-The beautiful part is you can invoke the hello actor greet function with async/await style as if they are on the same platform. For details, see React Components GreetingSection.js and ImageSection.js in /ui/components/.
-
 Webpack configuration:  
 In Next.js, it's located in next.config.js.
-
-## React Hook
-
-By using React Hook with actor UI declaration, it can greatly simplify frontend dev. It encourages component based composable logic. A great example is useImageObject.js React Hook in /ui/hooks. Given an imageId, useImageObject can load the image binary and convert it to a HTML image source object ready for use in <img>.
-
-If you look closer, useImageObject.js depends on image-serivce.js which depends on actor-locator.js. When you open ImageSection.js, you can find how useImageObject is being used to greatly reduce the complexity and the underlying calls with Canister. This is the pattern I used very often in my Content Fly Dapp project.
 
 ## Backend dev
 
