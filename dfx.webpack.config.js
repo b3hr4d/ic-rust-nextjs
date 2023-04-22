@@ -1,4 +1,5 @@
 const path = require("path")
+const writeFileSync = require("fs").writeFileSync
 
 let localCanisters, prodCanisters, canisters
 
@@ -23,10 +24,23 @@ function initCanisterIds() {
 
   canisters = network === "local" ? localCanisters : prodCanisters
 
-  for (const canister in canisters) {
-    process.env[`NEXT_PUBLIC_${canister.toUpperCase()}_CANISTER_ID`] =
-      canisters[canister][network]
+  process.local = {
+    DFX_NETWORK: "local"
   }
+
+  for (const canister in canisters) {
+    const name = canister.toUpperCase()
+    const address = canisters[canister][network]
+
+    process.local[`${name}_CANISTER_ID`] = address
+  }
+
+  writeFileSync(
+    path.resolve(".env.local"),
+    Object.entries(process.local)
+      .map(([key, value]) => `${key}=${value}`)
+      .join("\n")
+  )
 }
 
 module.exports = {
