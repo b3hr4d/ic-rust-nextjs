@@ -4,7 +4,7 @@ import Head from "next/head"
 
 import styles from "styles/Home.module.css"
 
-import { GreetingSection } from "components/GreetingSection"
+import Greeting from "components/Greeting"
 
 function HomePage() {
   return (
@@ -19,7 +19,7 @@ function HomePage() {
 
         <img src="/logo.png" alt="DFINITY logo" className={styles.logo} />
 
-        <GreetingSection />
+        <Greeting />
       </main>
     </div>
   )

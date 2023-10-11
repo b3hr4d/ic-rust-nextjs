@@ -2,12 +2,6 @@
 
 This project provides a simple starter template for Dfinity Internet Computer using Next.js framework as frontend.
 
-**The Most Recent Updates**
-
-- NextJS 13.3
-- DFX 0.13.1
-- NodeJS 18.16
-
 **Backend**
 
 - A simple greeting hello world canister written in Rust

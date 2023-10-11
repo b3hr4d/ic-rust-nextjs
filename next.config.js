@@ -1,20 +1,18 @@
-const DFXWebPackConfig = require("./dfx.webpack.config")
+// load env from ../.env file
+const envList = require("dotenv").config().parsed
+// get version from package.json
+const { version } = require("./package.json")
 
-const envList = DFXWebPackConfig.initCanisterIds()
+envList.NEXT_PUBLIC_IC_HOST =
+  envList.DFX_NETWORK === "ic" ? "https://ic0.app" : "http://localhost:8080"
 
-const webpack = require("webpack")
+console.log("network", envList.DFX_NETWORK)
 
-// Make DFX_NETWORK available to Web Browser with default "local" if DFX_NETWORK is undefined
-const EnvPlugin = new webpack.EnvironmentPlugin(envList)
+envList.NEXT_PUBLIC_VERSION = version
 
+/** @type {import('next').NextConfig} */
 module.exports = {
-  // eslint-disable-next-line no-unused-vars
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Plugin
-    config.plugins.push(EnvPlugin)
-
-    // Important: return the modified config
-    return config
-  },
-  output: "export"
+  env: envList,
+  output: "export",
+  staticPageGenerationTimeout: 10000
 }

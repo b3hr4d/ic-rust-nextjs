@@ -1,23 +1,29 @@
 {
   "canisters": {
     "hello": {
-      "type": "rust",
-      "package": "hello",
+      "type": "custom",
+      "wasm": "target/wasm32-unknown-unknown/release/hello-opt.wasm",
       "candid": "backend/hello/hello.did",
+      "package": "hello",
+      "build": "sh build.sh hello",
       "declarations": {
         "output": "src/declarations/hello",
         "node_compatibility": true
       }
     },
     "hello_assets": {
-      "dependencies": ["hello"],
+      "dependencies": [
+        "hello"
+      ],
       "frontend": {
         "entrypoint": "out/index.html"
       },
-      "source": ["out"],
+      "source": [
+        "out"
+      ],
       "type": "assets"
     }
   },
-  "dfx": "0.13.1",
+  "output_env_file": ".env",
   "version": 1
 }

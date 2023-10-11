@@ -1,3 +1,4 @@
+.env
 # Various IDEs and Editors
 .vscode/
 .idea/
