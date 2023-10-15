@@ -1,10 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-// Next, React
 import Head from "next/head"
 
 import styles from "styles/Home.module.css"
 
 import Greeting from "components/Greeting"
+import Image from "next/image"
 
 function HomePage() {
   return (
@@ -14,13 +13,25 @@ function HomePage() {
       </Head>
       <main className={styles.main}>
         <h3 className={styles.title}>
-          Welcome to Next.js Internet Computer Starter Template!
+          Welcome to the Internet Computer starter template
         </h3>
-
-        <img src="/logo.png" alt="DFINITY logo" className={styles.logo} />
-
         <Greeting />
       </main>
+      <footer className={styles.footer}>
+        <a
+          href="https://internetcomputer.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            width={140}
+            height={30}
+            src="/icp-logo.svg"
+            alt="DFINITY logo"
+            className={styles.logo}
+          />
+        </a>
+      </footer>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-import { callActor, useActorState } from "service/actor"
+import { useActorMethod } from "service/hello"
 
 interface GreetingProps {}
 
 const Greeting: React.FC<GreetingProps> = ({}) => {
-  const [name, setName] = useState("")
+  const { call, data, error, loading } = useActorMethod("greet")
 
-  const data = useActorState()
+  const [name, setName] = useState("")
 
   function onChangeName(e: React.ChangeEvent<HTMLInputElement>) {
     const newName = e.target.value
@@ -25,15 +25,13 @@ const Greeting: React.FC<GreetingProps> = ({}) => {
           value={name}
           onChange={onChangeName}
         />
-        <button onClick={() => callActor("greet", name)}>Send</button>
+        <button onClick={() => call(name)}>Send</button>
       </section>
       <section>
         <label>Response: &nbsp;</label>
-        {data?.greet.loading ? <span>Loading...</span> : null}
-        {data?.greet.error ? (
-          <span>Error: {JSON.stringify(data?.greet.error)}</span>
-        ) : null}
-        {data?.greet.result && <span>{data?.greet.result}</span>}
+        {loading ? <span>Loading...</span> : null}
+        {error ? <span>Error: {JSON.stringify(error)}</span> : null}
+        {data && <span>{JSON.stringify(data)}</span>}
       </section>
     </div>
   )

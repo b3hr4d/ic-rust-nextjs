@@ -1,4 +1,5 @@
 .env
+.env.local
 # Various IDEs and Editors
 .vscode/
 .idea/
@@ -21,4 +22,5 @@ out/
 
 # Rust build artifacts
 target/
+Cargo.lock
 

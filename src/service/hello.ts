@@ -7,7 +7,7 @@ export const {
   initialize,
   useReActor,
   useActorState,
-  useActorMethodState
+  useActorMethod
 } = createReActor(() =>
   createActor(canisterId, {
     agentOptions: {

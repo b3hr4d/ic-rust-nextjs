@@ -1,10 +1,11 @@
 {
-  "name": "nextjs_ic_template",
-  "version": "0.4.0",
+  "name": "ic-rust-nextjs",
+  "version": "1.0.0",
   "author": "b3hr4d <b3hr4d@live.com>",
-  "description": "Next.js Internet Computer Starter Template",
+  "description": "Internet Computer Rust + NextJS Template",
   "keywords": [
     "nextjs",
+    "rust",
     "internet computer",
     "icp",
     "starter",
@@ -12,43 +13,33 @@
   ],
   "scripts": {
     "postinstall": "cargo install ic-wasm@0.6.0 candid-extractor@0.1.1",
-    "deploy": "DFX_NETWORK=local dfx deploy --network=local",
-    "deploy:ic": "DFX_NETWORK=ic dfx deploy --network=ic",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
+    "export": "next build",
+    "lint:fix": "next lint --fix",
     "dev": "DFX_NETWORK=local next dev",
     "dev:ic": "DFX_NETWORK=ic next dev",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "export": "next build",
-    "generate": "cargo test && dfx generate",
-    "sync:hello": "DFX_NETWORK=local && rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/hello --exclude='idl/' --exclude='*.wasm' --delete ui/declarations",
-    "sync:image": "DFX_NETWORK=local && rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/image --exclude='idl/' --exclude='*.wasm' --delete ui/declarations"
+    "dfx:start": "dfx start --background --clean",
+    "dfx:build": "dfx build",
+    "deploy": "DFX_NETWORK=local dfx deploy --network=local",
+    "deploy:ic": "DFX_NETWORK=ic dfx deploy --network=ic",
+    "generate": "dfx generate"
   },
   "devDependencies": {
-    "@types/node": "18.15.13",
-    "@types/react": "18.0.38",
+    "@types/node": "20.8.6",
+    "@types/react": "18.2.28",
     "dotenv": "16.3.1",
-    "eslint": "^8.38.0",
-    "eslint-config-next": "^13.3",
-    "eslint-plugin-react": "^7.32",
-    "eslint-plugin-react-hooks": "^4.6",
-    "typescript": "5.0.4"
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^13.5.4",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "5.2.2"
   },
   "dependencies": {
-    "@dfinity/agent": "^0.15",
-    "@dfinity/candid": "^0.15",
-    "@dfinity/principal": "^0.15",
-    "@re-actor/core": "^0.0.0-alpha.28",
-    "assert": "^2.0.0",
-    "buffer": "^6.0.3",
-    "compressorjs": "^1.2.1",
-    "events": "^3.3.0",
-    "next": "^13.3",
+    "@re-actor/core": "0.0.1-alpha.0",
+    "next": "^13.5",
     "react": "^18.2",
-    "react-dom": "^18.2",
-    "react-dropzone": "^14.2",
-    "stream-browserify": "^3.0.0",
-    "util": "^0.12.5"
+    "react-dom": "^18.2"
   }
 }

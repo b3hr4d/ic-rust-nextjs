@@ -4,16 +4,15 @@
       "type": "custom",
       "wasm": "target/wasm32-unknown-unknown/release/hello-opt.wasm",
       "candid": "backend/hello/hello.did",
-      "package": "hello",
+      "package": "backend",
       "build": "sh build.sh hello",
       "declarations": {
-        "output": "src/declarations/hello",
         "node_compatibility": true
       }
     },
-    "hello_assets": {
+    "frontend": {
       "dependencies": [
-        "hello"
+        "backend"
       ],
       "frontend": {
         "entrypoint": "out/index.html"
@@ -24,6 +23,6 @@
       "type": "assets"
     }
   },
-  "output_env_file": ".env",
+  "output_env_file": ".env.local",
   "version": 1
 }
