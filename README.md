@@ -1,4 +1,4 @@
-# InternetComputer - Next.js + Rust Template
+# InternetComputer - Rust + Next.js Template
 
 This is a template for creating a Next.js app with a Rust backend that can be deployed to the Internet Computer.
 
@@ -29,4 +29,3 @@ This is a template for creating a Next.js app with a Rust backend that can be de
 
 - [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
 - [Rust](https://www.rust-lang.org/)
-- [Wasm-Pack](https://rustwasm.github.io/wasm-pack/installer/)
