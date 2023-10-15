@@ -29,3 +29,5 @@ This is a template for creating a Next.js app with a Rust backend that can be de
 
 - [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
 - [Rust](https://www.rust-lang.org/)
+- [Next.js](https://nextjs.org/)
+- [ReActor](https://github.com/B3Pay/re-actor)
