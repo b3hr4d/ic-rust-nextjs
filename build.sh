@@ -36,6 +36,8 @@ ic-wasm "$target_dir/$package.wasm" \
 
 echo "Done building $package-opt.wasm"
 
+dfx generate "$package"
+
 echo "File and Size(KB)"
 echo "$did_file: $(du -k "$did_file" | cut -f1) KB"
 echo "$target_dir/$package.wasm: $(du -k "$target_dir/$package.wasm" | cut -f1) KB"
