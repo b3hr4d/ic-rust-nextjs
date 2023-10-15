@@ -1,4 +1,4 @@
-import { createReActor } from "@re-actor/core"
+import createReActor from "@re-actor/core"
 import { canisterId, createActor } from "declarations/hello"
 
 export const {
