@@ -1,18 +1,16 @@
 {
   "canisters": {
     "hello": {
-      "type": "custom",
-      "wasm": "target/wasm32-unknown-unknown/release/hello-opt.wasm",
+      "type": "rust",
       "candid": "backend/hello/hello.did",
-      "package": "backend",
-      "build": "sh build.sh hello",
+      "package": "hello",
       "declarations": {
         "node_compatibility": true
       }
     },
     "frontend": {
       "dependencies": [
-        "backend"
+        "hello"
       ],
       "frontend": {
         "entrypoint": "out/index.html"

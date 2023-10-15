@@ -10,10 +10,11 @@ This is a template for creating a Next.js app with a Rust backend that can be de
 
 ## Running Locally
 
-1. Run `yarn dfx:start` in one terminal
-2. Run `yarn deploy` in another terminal
-3. Run `yarn dev` in another terminal
-4. Open http://localhost:3000 in your browser
+1. Run `yarn install` or `npm install`
+2. Run `yarn dfx:start` or `npm run dfx:start`
+3. Run `yarn deploy`  or `npm run deploy`
+4. Run `yarn dev` or `npm run dev`
+5. Open http://localhost:3000 in your browser
 
 ## Deploying to the Internet Computer
 
