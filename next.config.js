@@ -13,5 +13,8 @@ envList.NEXT_PUBLIC_VERSION = version
 module.exports = {
   env: envList,
   output: "export",
+  images: {
+    unoptimized: true,
+  },
   staticPageGenerationTimeout: 10000
 }
