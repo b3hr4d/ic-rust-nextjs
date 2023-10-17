@@ -43,8 +43,8 @@
     "prefer-const": 1
   },
   "ignorePatterns": [
-    "ui/declarations/**/*.js",
-    "ui/declarations/**/*.ts",
+    "src/declarations/**/*.js",
+    "src/declarations/**/*.ts",
     "src/declarations/**"
   ]
 }
