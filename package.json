@@ -20,6 +20,7 @@
     "lint:fix": "next lint --fix",
     "dev": "next dev",
     "dfx:start": "dfx start --background --clean",
+    "dfx:stop": "dfx stop",
     "dfx:build": "dfx build",
     "predeploy": "sh ./predeploy.sh",
     "deploy": "dfx deploy --network=local",
