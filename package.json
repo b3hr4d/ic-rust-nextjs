@@ -23,8 +23,7 @@
     "dfx:stop": "dfx stop",
     "dfx:build": "dfx build",
     "predeploy": "sh ./predeploy.sh",
-    "deploy": "dfx deploy --network=local",
-    "deploy:ic": "dfx deploy --network=ic",
+    "deploy": "dfx deploy",
     "generate": "dfx generate"
   },
   "devDependencies": {
