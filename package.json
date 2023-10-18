@@ -1,6 +1,6 @@
 {
   "name": "ic-rust-nextjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "b3hr4d <b3hr4d@live.com>",
   "description": "Internet Computer Rust + NextJS Template",
   "keywords": [
@@ -17,9 +17,7 @@
     "ic-wasm:install": "cargo install ic-wasm",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "export": "next build",
-    "lint:fix": "next lint --fix",
     "dev": "next dev",
     "dfx:start": "dfx start --background --clean",
     "dfx:stop": "dfx stop",
@@ -32,10 +30,6 @@
     "@types/node": "20.8.6",
     "@types/react": "18.2.28",
     "dotenv": "16.3.1",
-    "eslint": "^8.51.0",
-    "eslint-config-next": "^13.5.4",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "5.2.2"
   },
   "dependencies": {
