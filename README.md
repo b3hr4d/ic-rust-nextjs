@@ -10,15 +10,39 @@ This is a template for creating a Next.js app with a Rust backend that can be de
 
 ## Running Locally
 
-1. Run `yarn install` or `npm install`
+Installing dependencies:
+
+1. Run `yarn install:all` or `npm run install:all`
+   it will run the following commands:
+
+   Install Node.js dependencies:
+
+- Run `yarn install` or `npm install`
+
+  For extract candid definition from canister WASM:
+
+- Run `yarn candid:install` or `npm run candid:install`
+
+  For transforming Wasm canisters running on the Internet Computer:
+
+- Run `yarn wasm:install` or `npm run wasm:install`
+
+Running Local Internet Computer:
+
 2. Run `yarn dfx:start` or `npm run dfx:start`
-3. Run `yarn deploy`  or `npm run deploy`
+
+Deploying to the Local Internet Computer:
+
+3. Run `yarn deploy` or `npm run deploy`
+
+Running Next.js app:
+
 4. Run `yarn dev` or `npm run dev`
 5. Open http://localhost:3000 in your browser
 
 ## Deploying to the Internet Computer
 
-1. Run `yarn deploy:ic` to deploy the canisters to the Internet Computer
+1. Run `yarn deploy --network=ic` to deploy the canisters to the Internet Computer
 
 ## Notes
 
@@ -31,4 +55,6 @@ This is a template for creating a Next.js app with a Rust backend that can be de
 - [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
 - [Rust](https://www.rust-lang.org/)
 - [Next.js](https://nextjs.org/)
+- [ic-wasm](https://github.com/dfinity/ic-wasm)
+- [candid-extractor](https://github.com/dfinity/cdk-rs/tree/main/src/candid-extractor)
 - [ReActor](https://github.com/B3Pay/re-actor)

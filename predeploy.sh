@@ -19,9 +19,13 @@ for app_root in "$backend_dir"/*; do
         --package "$package"
     echo "Size of $package.wasm: $(ls -lh "$target_dir/$package.wasm" | awk '{print $5}')"
 
-    echo "${green}Generating Candid file for $package${no_color}"
-    candid-extractor "$target_dir/$package.wasm" > "$did_file"
-    echo "Size of $package.did: $(ls -lh "$did_file" | awk '{print $5}')"
+    if command -v candid-extractor >/dev/null 2>&1; then
+        echo "${green}Generating Candid file for $package${no_color}"
+        candid-extractor "$target_dir/$package.wasm" 2>/dev/null > "$did_file"
+        echo "Size of $package.did: $(ls -lh "$did_file" | awk '{print $5}')"
+    else
+        echo "${yellow}candid-extractor not found. Skipping generating $package.did.${no_color}"
+    fi
 
     # Check if ic-wasm is installed before attempting to shrink the wasm file
     if command -v ic-wasm >/dev/null 2>&1; then

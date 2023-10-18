@@ -177,29 +177,29 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@re-actor/core@0.0.1-alpha.0":
-  version "0.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@re-actor/core/-/core-0.0.1-alpha.0.tgz#c59a6a68ca86cf4525908e54ffc1ae00470bc08c"
-  integrity sha512-RP+GMrrHoA+ZobTS7d7ub8dV82v4WGfSfLLF9ocLkoNIuVz/93itfJWPAynQQtTmeEaz/Y8vpbRfe+F5tfMM/A==
+"@re-actor/core@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@re-actor/core/-/core-0.0.2.tgz#86ab594c4f06c57c79d315780457d2688972b8ce"
+  integrity sha512-d1jcK+QsVtfvVVozrH+lYGllzNn4PF0l4ButQyfxs95MIuOARYMFd9hLMKUsKPRBY9mnPz+biq6P8thIu/KWEA==
   dependencies:
-    "@re-actor/store" "^0.0.1-alpha.0"
-    "@re-actor/types" "^0.0.1-alpha.0"
+    "@re-actor/store" "^0.0.2"
+    "@re-actor/types" "^0.0.2"
     zustand "4.4.0"
 
-"@re-actor/store@^0.0.1-alpha.0":
-  version "0.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@re-actor/store/-/store-0.0.1-alpha.0.tgz#18ea6d0ee0c905fcd9a12a180e73979ab569dc00"
-  integrity sha512-+qshpRu6wAbxagMQsYfbEsW3RSXk3i993V/2D3PRZkolHQDa5L22FYpwuBZsm4WTp0UKCY0fqKt3/of//zeRMg==
+"@re-actor/store@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@re-actor/store/-/store-0.0.2.tgz#ae1258bfffdc00bbe9b02182be59ec2e828a09c9"
+  integrity sha512-GXA/usFCtlAEjcUJ9nfxFcN9z//lIbyvxlhZTv6Ry4aVGZn3QMxpjOgis53CiTwCTXmo+kzj2ntfZZTXgLhMgw==
   dependencies:
     "@dfinity/agent" "^0.19.3"
     "@dfinity/candid" "^0.19.3"
-    "@re-actor/types" "^0.0.1-alpha.0"
+    "@re-actor/types" "^0.0.2"
     zustand "^4.4.1"
 
-"@re-actor/types@^0.0.1-alpha.0":
-  version "0.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@re-actor/types/-/types-0.0.1-alpha.0.tgz#48678c9443b7aa50a6da3ac604301bb0d9a14a63"
-  integrity sha512-RmP4CK8Pz2Mwt9XbT7TuAp8ZVfB/JGmIah5QnYRTWpP13CbG/I/SmqtwP6dtiak+l80qMIdxO0NT8SDmmAA/Lg==
+"@re-actor/types@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@re-actor/types/-/types-0.0.2.tgz#c07e58b8b6564144e7949c0f6112403a15e9abf6"
+  integrity sha512-uBdH1wlXivrFu4D9MrYsxFYmBueAc7VZnUEOaO6XQYjyQgf9LFSF2cFiAqEO2XofDAFWoz8s3eMLoBf/I1jYmQ==
   dependencies:
     "@dfinity/agent" "^0.19.3"
     "@dfinity/auth-client" "^0.19.3"
