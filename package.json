@@ -12,7 +12,7 @@
     "dfinity"
   ],
   "scripts": {
-    "install:all": "npm run ic-wasm:install && npm run candid:install && npm install",
+    "install:all": "npm install  && npm run candid:install && npm run ic-wasm:install",
     "candid:install": "cargo install candid-extractor",
     "ic-wasm:install": "cargo install ic-wasm",
     "build": "next build",
