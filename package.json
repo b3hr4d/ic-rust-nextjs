@@ -12,7 +12,7 @@
     "dfinity"
   ],
   "scripts": {
-    "install:all": "npm install  && npm run candid:install && npm run ic-wasm:install",
+    "install:all": "npm run ic-wasm:install && npm run candid:install && (yarn -v && yarn || npm install)",
     "candid:install": "cargo install candid-extractor",
     "ic-wasm:install": "cargo install ic-wasm",
     "build": "next build",
@@ -33,7 +33,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "@re-actor/core": "^0.0.6",
+    "@re-actor/core": "^0.0.7",
     "next": "^13.5",
     "react": "^18.2",
     "react-dom": "^18.2"
