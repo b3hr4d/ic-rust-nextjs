@@ -12,7 +12,7 @@
     "dfinity"
   ],
   "scripts": {
-    "install:all": "(yarn -v && yarn || npm install) && npm run ic-wasm:install && npm run candid:install ",
+    "install:all": "(yarn -v && yarn || npm install) && npm run ic-wasm:install && npm run candid:install",
     "candid:install": "cargo install candid-extractor",
     "ic-wasm:install": "cargo install ic-wasm",
     "build": "next build",
@@ -26,16 +26,16 @@
     "deploy": "dfx deploy",
     "generate": "dfx generate"
   },
-  "devDependencies": {
-    "@types/node": "20.8.6",
-    "@types/react": "18.2.28",
-    "dotenv": "16.3.1",
-    "typescript": "5.2.2"
-  },
   "dependencies": {
     "@re-actor/core": "^0.0.7",
     "next": "^13.5",
     "react": "^18.2",
     "react-dom": "^18.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.6",
+    "@types/react": "18.2.28",
+    "dotenv": "16.3.1",
+    "typescript": "5.2.2"
   }
 }
