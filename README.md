@@ -2,6 +2,8 @@
 
 This is a template for creating a Next.js app with a Rust backend that can be deployed to the Internet Computer.
 
+![Alt text](public/demo.png)
+
 ## Getting Started
 
 1. Install the [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
