@@ -1,5 +1,5 @@
 // Adjust the path to load env from ../.env file
-const envList = require("dotenv").config({ path: "./.env.local" }).parsed
+const envList = require("dotenv").config({ path: "./.env.local" }).parsed || {}
 
 // Adjust the path to get version from package.json
 const { version } = require("./package.json")
