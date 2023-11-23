@@ -32,7 +32,7 @@
     "@dfinity/candid": "^0.20.1",
     "@dfinity/identity": "^0.20.1",
     "@dfinity/principal": "^0.20.1",
-    "@re-actor/core": "^0.1.2",
+    "@re-actor/core": "^0.2.1",
     "next": "^14.0",
     "react": "^18.2",
     "react-dom": "^18.2"

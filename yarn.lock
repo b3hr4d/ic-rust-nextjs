@@ -154,42 +154,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@re-actor/core@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@re-actor/core@npm:0.1.2"
+"@re-actor/core@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@re-actor/core@npm:0.2.1"
   dependencies:
-    "@re-actor/store": "npm:^0.1.1"
-    "@re-actor/types": "npm:^0.1.1"
+    "@re-actor/store": "npm:^0.2.0"
+    "@re-actor/types": "npm:^0.2.0"
     zustand: "npm:4.4"
   peerDependencies:
     react: ">=16.8"
-  checksum: 8610b958f78cd559fd4b389c5df07004ed03ccdd784e30f71009a62fd34101ac5927818e5c4873a64dad4b5f6bfd48c7e74f09b5cf563d3a08c9d1e1658f2da5
+  checksum: 9f5626078a42302ce7d1f2fb4b1218371f4001e538574a15139cf27715bfbf92ea2dfd5d2c20a36809b71581533f5b4feb3d75d3619a6db7cc6ec16a365ccd32
   languageName: node
   linkType: hard
 
-"@re-actor/store@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@re-actor/store@npm:0.1.1"
+"@re-actor/store@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@re-actor/store@npm:0.2.0"
   peerDependencies:
     "@dfinity/agent": ^0.20.1
     "@dfinity/auth-client": 0.20.1
     "@dfinity/candid": ^0.20.1
     "@re-actor/types": ^0.0.3
     zustand: ^4.4
-  checksum: 12e52785589dd3d8d65cd0d6e19098b699df3436c4d9ef3d77abb7f2989f9fc32d732d38e80d76416136c0a398ca40e23d97b791da0a066338e795b98c194425
+  checksum: fe54ec8d1ecee79b9cd7ea277851ac22d3ba653344b533f4c47501b0f394b23fffaea31230cd89a3d1367be639255135bd6f1f22acd1d0efce605faf1bb72a1d
   languageName: node
   linkType: hard
 
-"@re-actor/types@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@re-actor/types@npm:0.1.1"
+"@re-actor/types@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@re-actor/types@npm:0.2.0"
   peerDependencies:
     "@dfinity/agent": ^0.20.1
     "@dfinity/auth-client": ^0.20.1
     "@dfinity/candid": ^0.20.1
     "@dfinity/principal": ^0.20.1
     zustand: 4.4
-  checksum: ecf38952864057539a7adb61f84d6a71d7452f78c2757357eb5aa06fdf0ddcbdd8783a005f199e25f252c62f512801ecc4f244fa7d8c549b973f757e40ae3575
+  checksum: ddf85cfdeaa253dfc746e27200572b5f4b143526beebf2b4b00e53326a887bc47f1db5f8c080d98e748e5da760212b8248e6ac3fb54ff2fdfcfe7c81ff1472ce
   languageName: node
   linkType: hard
 
@@ -366,7 +366,7 @@ __metadata:
     "@dfinity/candid": "npm:^0.20.1"
     "@dfinity/identity": "npm:^0.20.1"
     "@dfinity/principal": "npm:^0.20.1"
-    "@re-actor/core": "npm:^0.1.2"
+    "@re-actor/core": "npm:^0.2.1"
     "@types/node": "npm:20.9.4"
     "@types/react": "npm:18.2.38"
     dotenv: "npm:16.3.1"
