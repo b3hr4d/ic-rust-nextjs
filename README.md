@@ -52,6 +52,14 @@ Running Next.js app:
 - The Next.js code is located in the `src` directory
 - The canister configuration is located in the `dfx.json` file
 
+## Other Branches
+
+- Motoko + Next.js Template: [motoko](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko)
+- Todo Motoko + Next.js Template: [motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko_todo)
+- RadixUI + Rust + Next.js Template: [radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/tree/radix-ui)
+- Stable Memory + Rust + Next.js Template: [stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/tree/stable_memory)
+- Identity + Rust + Next.js Template: [with-identity](https://github.com/b3hr4d/ic-rust-nextjs/tree/with-identity)
+
 ## Resources
 
 - [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
@@ -59,4 +67,4 @@ Running Next.js app:
 - [Next.js](https://nextjs.org/)
 - [ic-wasm](https://github.com/dfinity/ic-wasm)
 - [candid-extractor](https://github.com/dfinity/cdk-rs/tree/main/src/candid-extractor)
-- [ReActor](https://github.com/B3Pay/re-actor)
+- [@ic-reactor](https://github.com/B3Pay/ic-reactor)
