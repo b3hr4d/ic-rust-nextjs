@@ -14,7 +14,7 @@ This is a template for creating a Next.js app with a Rust backend that can be de
 
 Installing dependencies:
 
-1. Run `yarn install:all` or `npm run install:all`
+1. Run `yarn install` or `npm install`
    it will run the following commands:
 
    Install Node.js dependencies:

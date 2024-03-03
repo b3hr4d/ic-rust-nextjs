@@ -1,12 +1,16 @@
 import React, { useState } from "react"
-import { useActorMethod } from "service/hello"
+import { useQueryCall } from "service/hello"
 
 interface GreetingProps {}
 
 const Greeting: React.FC<GreetingProps> = ({}) => {
-  const { call, data, error, loading } = useActorMethod("greet")
-
   const [name, setName] = useState("")
+
+  const { call, data, error, loading } = useQueryCall({
+    refetchOnMount: false,
+    functionName: "greet",
+    args: [name]
+  })
 
   function onChangeName(e: React.ChangeEvent<HTMLInputElement>) {
     const newName = e.target.value
@@ -25,13 +29,17 @@ const Greeting: React.FC<GreetingProps> = ({}) => {
           value={name}
           onChange={onChangeName}
         />
-        <button onClick={() => call(name)}>Send</button>
+        <button onClick={call}>Send</button>
       </section>
       <section>
         <label>Response: &nbsp;</label>
-        {loading ? <span>Loading...</span> : null}
-        {error ? <span>Error: {JSON.stringify(error)}</span> : null}
-        {data && <span>{JSON.stringify(data)}</span>}
+        {loading ? (
+          <span>Loading...</span>
+        ) : error ? (
+          <span>{error.message}</span>
+        ) : data ? (
+          <span>{data}</span>
+        ) : null}
       </section>
     </div>
   )
