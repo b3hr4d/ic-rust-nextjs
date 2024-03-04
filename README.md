@@ -54,11 +54,21 @@ Running Next.js app:
 
 ## Other Branches
 
-- Motoko + Next.js Template: [motoko](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko)
+- Motoko + Next.js Template: [motoko](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko?raw=true)
+
+![motoko](https://github.com/b3hr4d/ic-rust-nextjs/blob/motoko/public/demo.png?raw=true)
+
 - Todo Motoko + Next.js Template: [motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko_todo)
+
+![motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/blob/motoko_todo/public/demo.png?raw=true)
+
 - RadixUI + Rust + Next.js Template: [radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/tree/radix-ui)
+
+![radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/blob/radix-ui/public/demo.png?raw=true)
+
 - Stable Memory + Rust + Next.js Template: [stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/tree/stable_memory)
-- Identity + Rust + Next.js Template: [with-identity](https://github.com/b3hr4d/ic-rust-nextjs/tree/with-identity)
+
+![stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/blob/stable_memory/public/demo.png?raw=true)
 
 ## Resources
 
@@ -67,4 +77,5 @@ Running Next.js app:
 - [Next.js](https://nextjs.org/)
 - [ic-wasm](https://github.com/dfinity/ic-wasm)
 - [candid-extractor](https://github.com/dfinity/cdk-rs/tree/main/src/candid-extractor)
+- [radix-ui](https://www.radix-ui.com)
 - [@ic-reactor](https://github.com/B3Pay/ic-reactor)
