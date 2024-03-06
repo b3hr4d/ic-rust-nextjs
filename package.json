@@ -27,7 +27,7 @@
     "generate": "dfx generate"
   },
   "dependencies": {
-    "@ic-reactor/react": "^1.1",
+    "@ic-reactor/react": "^1.2",
     "next": "^14.0",
     "react": "^18.2",
     "react-dom": "^18.2"
