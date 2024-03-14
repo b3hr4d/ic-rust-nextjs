@@ -19,12 +19,13 @@
     "start": "next start",
     "export": "next build",
     "dev": "next dev",
-    "dfx:start": "dfx start --background --clean",
-    "dfx:stop": "dfx stop",
-    "dfx:build": "sh ./predeploy.sh && dfx build",
-    "predeploy": "sh ./predeploy.sh",
     "deploy": "dfx deploy",
-    "generate": "dfx generate"
+    "dfx:stop": "dfx stop",
+    "dfx:pull": "dfx deps pull && dfx deps init",
+    "dfx:start": "dfx start --background --clean",
+    "dfx:build": "sh ./predeploy.sh && dfx build",
+    "dfx:identity": "dfx deps deploy internet_identity",
+    "dfx:generate": "dfx generate"
   },
   "dependencies": {
     "@ic-reactor/react": "^1.2",
