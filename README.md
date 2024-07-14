@@ -27,7 +27,7 @@ Installing dependencies:
 
   For transforming Wasm canisters running on the Internet Computer:
 
-- Run `yarn wasm:install` or `npm run wasm:install`
+- Run `yarn ic-wasm:install` or `npm run ic-wasm:install`
 
 Running Local Internet Computer:
 
