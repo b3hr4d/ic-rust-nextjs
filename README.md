@@ -1,81 +1,128 @@
-# InternetComputer - Rust + Next.js Template
+# Internet Computer - Rust + Next.js Template
 
-This is a template for creating a Next.js app with a Rust backend that can be deployed to the Internet Computer.
+This template demonstrates building a Next.js frontend with a Rust backend canister on the Internet Computer, using **IC Reactor v3** for type-safe canister interactions.
 
-![Alt text](public/demo.png)
+![Demo](public/demo.png)
+
+## Features
+
+- 🚀 **Next.js 15** with React 19
+- 🦀 **Rust Backend** with IC CDK
+- ⚡ **IC Reactor v3** - Type-safe canister interactions with TanStack Query caching
+- 🔐 **Authentication Ready** - Built-in support for Internet Identity
+
+## Project Structure
+
+```
+├── backend/             # Rust canister code
+├── src/
+│   ├── components/      # React components
+│   ├── declarations/    # Auto-generated canister interface
+│   ├── lib/
+│   │   ├── reactor.ts   # IC Reactor setup (ClientManager + Reactor)
+│   │   └── hooks.ts     # Typed React hooks for canister calls
+│   └── pages/           # Next.js pages
+├── dfx.json             # Canister configuration
+└── package.json
+```
+
+## IC Reactor v3 Usage
+
+This template uses IC Reactor v3's new patterns:
+
+### Reactor Setup (`src/lib/reactor.ts`)
+
+```typescript
+import { ClientManager, Reactor } from "@ic-reactor/react"
+import { QueryClient } from "@tanstack/react-query"
+
+const queryClient = new QueryClient()
+const clientManager = new ClientManager({ queryClient, withLocalEnv: true })
+
+export const helloReactor = new Reactor<_SERVICE>({
+  clientManager,
+  idlFactory,
+  canisterId
+})
+```
+
+### Generated Hooks (`src/lib/hooks.ts`)
+
+```typescript
+import { createActorHooks } from "@ic-reactor/react"
+
+export const { useActorQuery, useActorMutation } =
+  createActorHooks(helloReactor)
+```
+
+### Component Usage
+
+```typescript
+import { useActorMutation } from "lib/hooks"
+
+function Greeting() {
+  const { mutate, data, isPending } = useActorMutation({
+    functionName: "greet"
+  })
+
+  return (
+    <button onClick={() => mutate(["World"])}>
+      {isPending ? "Loading..." : data || "Click to greet"}
+    </button>
+  )
+}
+```
 
 ## Getting Started
 
-1. Install the [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
-2. Install [Node.js](https://nodejs.org/en/download/)
-3. Install [Rust](https://www.rust-lang.org/tools/install)
+### Prerequisites
 
-## Running Locally
+1. [DFINITY Canister SDK (dfx)](https://internetcomputer.org/docs/current/developer-docs/getting-started/install/)
+2. [Node.js](https://nodejs.org/) (v18+)
+3. [Rust](https://www.rust-lang.org/tools/install)
 
-Installing dependencies:
+### Installation
 
-1. Run `yarn install` or `npm install`
-   it will run the following commands:
+```bash
+# Install dependencies
+npm install
 
-   Install Node.js dependencies:
+# Install Rust tools (optional, for building backend)
+npm run candid:install
+npm run ic-wasm:install
+```
 
-- Run `yarn install` or `npm install`
+### Running Locally
 
-  For extract candid definition from canister WASM:
+```bash
+# Start local IC replica
+npm run dfx:start
 
-- Run `yarn candid:install` or `npm run candid:install`
+# Deploy canisters
+npm run deploy
 
-  For transforming Wasm canisters running on the Internet Computer:
+# Start Next.js development server
+npm run dev
+```
 
-- Run `yarn ic-wasm:install` or `npm run ic-wasm:install`
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-Running Local Internet Computer:
+### Deploy to IC Mainnet
 
-2. Run `yarn dfx:start` or `npm run dfx:start`
-
-Deploying to the Local Internet Computer:
-
-3. Run `yarn deploy` or `npm run deploy`
-
-Running Next.js app:
-
-4. Run `yarn dev` or `npm run dev`
-5. Open http://localhost:3000 in your browser
-
-## Deploying to the Internet Computer
-
-1. Run `yarn deploy --network=ic` to deploy the canisters to the Internet Computer
-
-## Notes
-
-- The Rust code is located in the `backend` directory
-- The Next.js code is located in the `src` directory
-- The canister configuration is located in the `dfx.json` file
+```bash
+npm run deploy -- --network=ic
+```
 
 ## Other Branches
 
-- Motoko + Next.js Template: [motoko](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko?raw=true)
-
-![motoko](https://github.com/b3hr4d/ic-rust-nextjs/blob/motoko/public/demo.png?raw=true)
-
-- Todo Motoko + Next.js Template: [motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko_todo)
-
-![motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/blob/motoko_todo/public/demo.png?raw=true)
-
-- RadixUI + Rust + Next.js Template: [radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/tree/radix-ui)
-
-![radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/blob/radix-ui/public/demo.png?raw=true)
-
-- Stable Memory + Rust + Next.js Template: [stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/tree/stable_memory)
-
-![stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/blob/stable_memory/public/demo.png?raw=true)
+- **Motoko + Next.js**: [motoko](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko)
+- **Todo App (Motoko)**: [motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko_todo)
+- **RadixUI + Rust**: [radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/tree/radix-ui)
+- **Stable Memory**: [stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/tree/stable_memory)
 
 ## Resources
 
-- [DFINITY Canister SDK](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html)
-- [Rust](https://www.rust-lang.org/)
+- [IC Reactor Documentation](https://b3pay.github.io/ic-reactor/)
+- [DFINITY SDK Documentation](https://internetcomputer.org/docs/)
+- [Rust on IC](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
 - [Next.js](https://nextjs.org/)
-- [ic-wasm](https://github.com/dfinity/ic-wasm)
-- [candid-extractor](https://github.com/dfinity/cdk-rs/tree/main/src/candid-extractor)
-- [radix-ui](https://www.radix-ui.com)
-- [@ic-reactor](https://github.com/B3Pay/ic-reactor)

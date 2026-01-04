@@ -8,16 +8,18 @@
         "node_compatibility": true
       }
     },
+    "internet_identity": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
+      "specified_id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    },
     "frontend": {
-      "dependencies": [
-        "hello"
-      ],
+      "dependencies": ["hello"],
       "frontend": {
         "entrypoint": "out/index.html"
       },
-      "source": [
-        "out"
-      ],
+      "source": ["out"],
       "type": "assets"
     }
   },
