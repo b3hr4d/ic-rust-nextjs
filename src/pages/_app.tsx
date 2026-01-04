@@ -1,9 +1,9 @@
 import { AppProps } from "next/app"
-import React from "react"
+import React, { useEffect } from "react"
 import { QueryClientProvider } from "@tanstack/react-query"
-import { queryClient } from "lib/reactor"
+import { clientManager, queryClient } from "lib/reactor"
 import "styles/global.css"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { useAgentState } from "lib/hooks"
 
 /**
  * Next.js App Component
@@ -12,10 +12,22 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
  * enabling caching and state management for IC Reactor queries.
  */
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const { isInitialized } = useAgentState()
+
+  useEffect(() => {
+    clientManager.initialize()
+  }, [])
+
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
-      <ReactQueryDevtools />
+      {isInitialized ? (
+        <Component {...pageProps} />
+      ) : (
+        <div className="loading-container">
+          <div className="loading-spinner" />
+          <p className="loading-text">Connecting to Internet Computer...</p>
+        </div>
+      )}
     </QueryClientProvider>
   )
 }

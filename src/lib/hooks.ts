@@ -4,8 +4,13 @@
  * This file exports typed React hooks for interacting with the hello canister.
  * Using createActorHooks generates a suite of hooks tailored to your canister's interface.
  */
-import { createActorHooks } from "@ic-reactor/react"
-import { helloReactor } from "./reactor"
+import { createActorHooks, createAuthHooks } from "@ic-reactor/react"
+import { clientManager, helloReactor } from "./reactor"
+
+/**
+ * Auth hooks
+ */
+export const { useAuth, useAgentState } = createAuthHooks(clientManager)
 
 /**
  * Generated hooks for the Hello canister:
@@ -21,6 +26,3 @@ export const {
   useActorInfiniteQuery,
   useActorSuspenseQuery
 } = createActorHooks(helloReactor)
-
-// Re-export reactor for direct access if needed
-export { helloReactor } from "./reactor"

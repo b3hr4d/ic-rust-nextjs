@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { useActorMutation } from "lib/hooks"
 
-interface GreetingProps {}
-
 /**
  * Greeting Component
  *
@@ -10,7 +8,7 @@ interface GreetingProps {}
  * Since greet doesn't need caching (it's a simple call with changing args),
  * we use mutation pattern for manual triggering.
  */
-const Greeting: React.FC<GreetingProps> = () => {
+const Greeting: React.FC = () => {
   const [name, setName] = useState("")
 
   // useActorMutation for the greet function
@@ -24,40 +22,63 @@ const Greeting: React.FC<GreetingProps> = () => {
   }
 
   function handleSubmit() {
-    // Call the canister with the current name
-    mutate([name])
+    if (name.trim()) {
+      mutate([name])
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") {
+      handleSubmit()
+    }
   }
 
   return (
-    <div>
-      <section>
-        <h2>Greeting</h2>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input
-          id="name"
-          alt="Name"
-          type="text"
-          value={name}
-          onChange={onChangeName}
-        />
-        <button onClick={handleSubmit} disabled={isPending}>
-          {isPending ? "Sending..." : "Send"}
-        </button>
-      </section>
-      <section>
-        <label>Response: &nbsp;</label>
+    <div className="greeting-section">
+      <h2 className="greeting-title">🎉 Greeting Demo</h2>
+      <div className="greeting-form">
+        <label htmlFor="name">
+          Enter your name to get a greeting from the canister:
+        </label>
+        <div className="input-group">
+          <input
+            id="name"
+            type="text"
+            placeholder="Your name..."
+            value={name}
+            onChange={onChangeName}
+            onKeyDown={handleKeyDown}
+          />
+          <button
+            className="btn-primary"
+            onClick={handleSubmit}
+            disabled={isPending || !name.trim()}
+          >
+            {isPending ? (
+              <>
+                <span className="spinner" />
+                Sending...
+              </>
+            ) : (
+              "Send"
+            )}
+          </button>
+        </div>
+      </div>
+      <div className="response-area">
+        <div className="response-label">Response from canister:</div>
         {isPending ? (
-          <span>Loading...</span>
+          <span className="response-text muted">Waiting for response...</span>
         ) : error ? (
-          <span style={{ color: "red" }}>{error.message}</span>
+          <span className="response-text error">⚠️ {error.message}</span>
         ) : data ? (
-          <span>{String(data)}</span>
+          <span className="response-text success">✅ {String(data)}</span>
         ) : (
-          <span style={{ color: "#888" }}>
-            Enter a name and click Send to get a greeting
+          <span className="response-text muted">
+            Enter a name and click Send
           </span>
         )}
-      </section>
+      </div>
     </div>
   )
 }

@@ -24,14 +24,10 @@ export const queryClient = new QueryClient({
   }
 })
 
-// Determine if we're in a local environment
-const isLocal =
-  typeof process !== "undefined" && process.env?.DFX_NETWORK !== "ic"
-
 // Create the ClientManager - handles agent creation and authentication
 export const clientManager = new ClientManager({
   queryClient,
-  withLocalEnv: isLocal
+  withProcessEnv: true
 })
 
 /**
@@ -39,14 +35,9 @@ export const clientManager = new ClientManager({
  *
  * This reactor provides type-safe access to all canister methods
  * with automatic query caching via TanStack Query.
- *
- * Note: We use the management canister ID as a fallback during SSR/build
- * when env vars aren't available. The actual canister ID will be used at runtime.
  */
 export const helloReactor = new Reactor<_SERVICE>({
   clientManager,
   idlFactory,
-  // Use the canisterId from declarations, or management canister as fallback
-  // "aaaaa-aa" is the management canister principal (always valid)
-  canisterId: canisterId || "aaaaa-aa"
+  canisterId
 })

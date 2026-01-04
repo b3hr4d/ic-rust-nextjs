@@ -1,9 +1,10 @@
 import Head from "next/head"
+import Image from "next/image"
 
 import styles from "styles/Home.module.css"
 
 import Greeting from "components/Greeting"
-import Image from "next/image"
+import Login from "components/Login"
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
         <h3 className={styles.title}>
           Welcome to the Internet Computer starter template
         </h3>
+        <Login />
         <Greeting />
       </main>
       <footer className={styles.footer}>
@@ -25,9 +27,9 @@ function HomePage() {
         >
           <Image
             width={140}
-            height={30}
-            src="/icp-logo.svg"
-            alt="DFINITY logo"
+            height={35}
+            src="/icp-logo.png"
+            alt="Internet Computer logo"
             className={styles.logo}
           />
         </a>
