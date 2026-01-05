@@ -29,9 +29,6 @@
     "dfx:generate": "dfx generate"
   },
   "dependencies": {
-    "@dfinity/agent": "^3.4.3",
-    "@dfinity/candid": "^3.4.3",
-    "@dfinity/principal": "^3.4.3",
     "@ic-reactor/react": "^3.0.0-beta.6",
     "@icp-sdk/auth": "^5.0.0",
     "@icp-sdk/core": "^5.0.0",
