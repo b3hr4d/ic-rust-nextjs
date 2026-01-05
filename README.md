@@ -188,25 +188,6 @@ function Greeting() {
 dfx deploy --network=ic
 ```
 
-## 🔗 Template Variants
-
-This template has multiple variants for different use cases:
-
-| Branch                                                                           | Stack                    | Description                        |
-| -------------------------------------------------------------------------------- | ------------------------ | ---------------------------------- |
-| **main**                                                                         | Rust + Next.js           | Default template with Rust backend |
-| **[motoko](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko)**               | Motoko + Next.js         | Motoko backend for easier learning |
-| **[motoko_todo](https://github.com/b3hr4d/ic-rust-nextjs/tree/motoko_todo)**     | Motoko + Next.js         | Todo app example                   |
-| **[radix-ui](https://github.com/b3hr4d/ic-rust-nextjs/tree/radix-ui)**           | Rust + Next.js + RadixUI | With RadixUI components            |
-| **[stable_memory](https://github.com/b3hr4d/ic-rust-nextjs/tree/stable_memory)** | Rust + Next.js           | Using stable memory patterns       |
-
-Use degit to clone a specific branch:
-
-```bash
-npx degit b3hr4d/ic-rust-nextjs#motoko my-motoko-app
-npx degit b3hr4d/ic-rust-nextjs#radix-ui my-radix-app
-```
-
 ## 🎨 Customizing the Template
 
 ### Rename Your Project
