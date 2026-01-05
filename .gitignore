@@ -1,8 +1,13 @@
+# Environment files
 .env
 .env.local
+.env.*.local
+
 # Various IDEs and Editors
 .vscode/
 .idea/
+*.swp
+*.swo
 **/*~
 
 # Mac OSX temporary files
@@ -12,17 +17,28 @@
 
 # dfx temporary files
 .dfx/
-.yarn
 canister_ids.json
 
-# frontend code
+# Package managers
 node_modules/
-out/
+.yarn
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Next.js
 .next/
+out/
 
 # Rust build artifacts
 target/
 Cargo.lock
 
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Testing
+coverage/

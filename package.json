@@ -3,16 +3,30 @@
   "version": "2.0.0",
   "author": "b3hr4d <b3hr4d@live.com>",
   "description": "Internet Computer Rust + NextJS Template (IC Reactor v3)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b3hr4d/ic-rust-nextjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/b3hr4d/ic-rust-nextjs/issues"
+  },
+  "homepage": "https://github.com/b3hr4d/ic-rust-nextjs#readme",
   "keywords": [
     "nextjs",
     "rust",
     "internet computer",
     "icp",
-    "starter",
     "dfinity",
-    "ic-reactor"
+    "ic-reactor",
+    "template",
+    "starter",
+    "boilerplate",
+    "dapp",
+    "web3"
   ],
   "scripts": {
+    "template:init": "node scripts/init-template.js",
     "install:all": "(yarn -v && yarn || npm install) && npm run ic-wasm:install && npm run candid:install",
     "candid:install": "cargo install candid-extractor",
     "ic-wasm:install": "cargo install ic-wasm",
