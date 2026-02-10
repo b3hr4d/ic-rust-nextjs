@@ -32,7 +32,9 @@ module.exports = {
 
   // Turbopack configuration (Next.js 16+ default bundler)
   turbopack: {
-    // Add any Turbopack-specific configuration here if needed
+    resolveAlias: {
+      "@dfinity": "@icp-sdk/core"
+    }
   },
 
   // Webpack configuration (for production builds or --webpack flag)
@@ -40,6 +42,11 @@ module.exports = {
     // Fix for ESM directory imports
     config.resolve.extensionAlias = {
       ".js": [".js", ".ts", ".tsx"]
+    }
+
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "@dfinity": "@icp-sdk/core"
     }
 
     // Fix for packages that need node polyfills

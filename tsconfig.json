@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",
@@ -24,6 +25,9 @@
       }
     ],
     "paths": {
+      "@dfinity/*": [
+        "./node_modules/@icp-sdk/core/*"
+      ],
       "*": [
         "./src/*"
       ]
