@@ -37,6 +37,7 @@ export const clientManager = new ClientManager({
  * with automatic query caching via TanStack Query.
  */
 export const helloReactor = new Reactor<_SERVICE>({
+  name: "hello",
   clientManager,
   idlFactory,
   canisterId

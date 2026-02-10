@@ -38,7 +38,6 @@
     "dfx:stop": "dfx stop",
     "dfx:start": "dfx start --background --clean",
     "dfx:build": "sh ./predeploy.sh && dfx build",
-    "dfx:identity": "dfx deps deploy internet_identity",
     "dfx:generate": "dfx generate"
   },
   "dependencies": {
