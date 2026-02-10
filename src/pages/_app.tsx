@@ -12,22 +12,9 @@ import { useAgentState } from "lib/hooks"
  * enabling caching and state management for IC Reactor queries.
  */
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const { isInitialized } = useAgentState()
-
-  useEffect(() => {
-    clientManager.initialize()
-  }, [])
-
   return (
     <QueryClientProvider client={queryClient}>
-      {isInitialized ? (
-        <Component {...pageProps} />
-      ) : (
-        <div className="loading-container">
-          <div className="loading-spinner" />
-          <p className="loading-text">Connecting to Internet Computer...</p>
-        </div>
-      )}
+      <Component {...pageProps} />
     </QueryClientProvider>
   )
 }
