@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "template:init": "node scripts/init-template.js",
-    "install:all": "(yarn -v && yarn || npm install) && npm run ic-wasm:install && npm run candid:install",
+    "install:all": "npm install && npm run ic-wasm:install && npm run candid:install",
     "candid:install": "cargo install candid-extractor",
     "ic-wasm:install": "cargo install ic-wasm",
     "build": "next build",
@@ -36,7 +36,6 @@
     "dev": "next dev",
     "deploy": "dfx deploy",
     "dfx:stop": "dfx stop",
-    "dfx:pull": "dfx deps pull && dfx deps init",
     "dfx:start": "dfx start --background --clean",
     "dfx:build": "sh ./predeploy.sh && dfx build",
     "dfx:identity": "dfx deps deploy internet_identity",
